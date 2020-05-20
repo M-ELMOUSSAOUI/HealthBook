@@ -8,7 +8,6 @@ import * as Animatable from 'react-native-animatable';
 export default class main extends Component {
     constructor(props) {
         super(props);
-    
     }
 
     render() {

@@ -1,6 +1,6 @@
-import React, { Component,useEffect } from 'react'
-import {Text, Alert, StyleSheet, View, TouchableOpacity } from 'react-native';
-import {Input} from 'react-native-elements'
+import React, { Component } from 'react'
+import { Text, Alert, StyleSheet, View, TouchableOpacity } from 'react-native';
+import { Input } from 'react-native-elements'
 import firebase from '../config/firebaseConfig';
 import { appStyle } from '../styles/globalStyle';
 import * as Animatable from 'react-native-animatable';
@@ -11,7 +11,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 
 export default class login extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -36,8 +36,8 @@ export default class login extends Component {
         this.startProgress();
         firebase.auth().signInWithEmailAndPassword(this.state.email.trim(), this.state.password)
             .catch(err => Alert.alert('Error', err.message))
-            .then(() => {this.stopProgress()})
-            
+            .then(() => { this.stopProgress() })
+
     }
 
     startProgress = () => {
@@ -52,10 +52,10 @@ export default class login extends Component {
     }
 
     //LifeCycle methodes
-    componentDidMount(){
+    componentDidMount() {
 
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.stopProgress();
     }
     render() {
@@ -66,7 +66,7 @@ export default class login extends Component {
                     animation='fade'
                     textContent={'Chargement...'}
                     overlayColor='rgba(0, 0, 0, 0.5)'
-                    textStyle={{fontSize:20,color:'#e5ffff'}}
+                    textStyle={{ fontSize: 20, color: '#e5ffff' }}
                     color='#fff'
                 />
                 <View style={{ marginBottom: 50 }} >
@@ -76,32 +76,32 @@ export default class login extends Component {
                         easing="ease-out"
                         iterationCount="infinite" />
                 </View>
-                    <Input
+                <Input
                     leftIcon={<FontAwesome name={'at'} size={28} color={'#28696d'} />}
-                        style={appStyle.input}
-                        label='Email'
-                        placeholder='Example@exp.com'
-                        autoCapitalize='none'
-                        onChangeText={email => this.setState({ email })}
-                    />
-                    
-                    <Input
-                    containerStyle={{borderColor:'red',borderWidth:1}}
-                        leftIcon={<FontAwesome name={'lock'} size={28} color={'#28696d'}  />}
-                        rightIcon={
-                            <TouchableOpacity 
-                                onPress={this.showPass.bind(this)}>
+                    style={appStyle.input}
+                    label='Email'
+                    placeholder='Example@exp.com'
+                    autoCapitalize='none'
+                    onChangeText={email => this.setState({ email })}
+                />
+
+                <Input
+
+                    leftIcon={<FontAwesome name={'lock'} size={28} color={'#28696d'} />}
+                    rightIcon={
+                        <TouchableOpacity
+                            onPress={this.showPass.bind(this)}>
                             <FontAwesome name={this.state.press == false ? 'eye' : 'eye-slash'} size={28} color={'#000'} />
                         </TouchableOpacity>
-                        }
-                        style={appStyle.input}
-                        label='Password'
-                        placeholder='Password'
-                        secureTextEntry={this.state.showPass}
-                        autoCapitalize='none'
-                        onChangeText={password =>this.setState({password})}
-                    />
-                
+                    }
+                    style={appStyle.input}
+                    label='Password'
+                    placeholder='Password'
+                    secureTextEntry={this.state.showPass}
+                    autoCapitalize='none'
+                    onChangeText={password => this.setState({ password })}
+                />
+
                 <TouchableOpacity style={appStyle.button} onPress={this.loginUser}>
                     <Text style={appStyle.btnText} > Se connecter </Text>
                 </TouchableOpacity>

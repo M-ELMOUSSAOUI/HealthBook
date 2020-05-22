@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, View, TouchableOpacity,TextInput } from 'react-native'
 import logo from './addPageIcons/surgery.png';
 import { appStyle } from '../../styles/globalStyle';
 import { Input } from 'react-native-elements'
@@ -19,7 +19,7 @@ export default class Surgery extends Component {
             <View style={styles.container} >
                
        
-             <View style={{ marginBottom: 50 }} >
+             <View style={{ marginBottom: 20 }} >
              <Animatable.Image
                  source={logo}
                  animation="pulse"
@@ -27,40 +27,39 @@ export default class Surgery extends Component {
                  iterationCount="infinite" />
          </View>
          <Text> Nom de chirurgie: </Text>
-             <Input
+             <TextInput
              style={appStyle.input}
-             label=''
              placeholder=''
              autoCapitalize='none'
+             underlineColorAndroid='transparent'
              onChangeText={(nomchirurgie) => this.setState({nomchirurgie})}
              value={this.state.nomchirurgie}
          />
-         <View style = {styles.InputCont}>
           <Text> Fait le : </Text>
-             <Input
+          <TextInput
              style={appStyle.input}
-             label=''
-             placeholder=''
+             placeholder=' /   /   '
              autoCapitalize='none'
+             underlineColorAndroid='transparent'
              onChangeText={(faitle) => this.setState({faitle})}
              value={this.state.faitle}
          />
           <Text> a : </Text>
-             <Input
+          <TextInput
              style={appStyle.input}
-             label=''
              placeholder=''
              autoCapitalize='none'
+             underlineColorAndroid='transparent'
              onChangeText={(endroit) => this.setState({endroit})}
              value={this.state.endroit}
          />
-         </View>
+        
          <Text> Par Docteur : </Text>
-             <Input
+         <TextInput
              style={appStyle.input}
-             label=''
              placeholder=''
              autoCapitalize='none'
+             underlineColorAndroid='transparent'
              onChangeText={(pardocteur) => this.setState({pardocteur})}
              value={this.state.pardocteur}
          />
@@ -78,8 +77,5 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:'center',
         alignItems:'center',
-    },
-    InputCont: {
-        justifyContent: "space-between"
     }
 })

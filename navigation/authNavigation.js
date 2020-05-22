@@ -20,7 +20,7 @@ export default class authNavigation extends Component {
                     }
                 }}
             >
-                <stack.Screen name="main" component={main} />
+                <stack.Screen options={{headerShown:false}} name="main" component={main} />
                 <stack.Screen name="login" component={login} />
                 <stack.Screen name="Registre" component={signUp} />
             </stack.Navigator>

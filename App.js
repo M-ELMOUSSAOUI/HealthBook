@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, StatusBar,Text } from 'react-native';
 import AuthNavigation from './navigation/authNavigation';
-import HomeNav from './navigation/homeNavigation';
+import Home from './navigation/drawer/myDrawer';
 import firebase from './config/firebaseConfig';
 import * as Progress from 'react-native-progress';
 
@@ -52,7 +52,7 @@ export default class App extends Component {
     : 
       <NavigationContainer >
         <StatusBar barStyle='light-content' backgroundColor='#003e42' />
-        {this.state.isAuth ? <HomeNav /> : <AuthNavigation />}
+        {this.state.isAuth ? <Home /> : <AuthNavigation />}
       </NavigationContainer>
 
     )

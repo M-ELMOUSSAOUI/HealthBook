@@ -6,7 +6,7 @@ import home from '../homeNavigation';
 
 const drawer = createDrawerNavigator();
 
-export default class myDrawer extends Component {
+export default class _myDrawer extends Component {
     render() {
         return (
             <drawer.Navigator initialRouteName={home}>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, StatusBar,Text } from 'react-native';
 import AuthNavigation from './navigation/authNavigation';
-import Home from './navigation/drawer/myDrawer';
+import Home from './navigation/drawer/_myDrawer';
 import firebase from './config/firebaseConfig';
 import * as Progress from 'react-native-progress';
 

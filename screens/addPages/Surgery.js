@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
-import logo from '../addPageIcons/surgery.png';
-import { appStyle } from '../styles/globalStyle';
+import logo from './addPageIcons/surgery.png';
+import { appStyle } from '../../styles/globalStyle';
 import { Input } from 'react-native-elements'
 import * as Animatable from 'react-native-animatable';
 export default class Surgery extends Component {

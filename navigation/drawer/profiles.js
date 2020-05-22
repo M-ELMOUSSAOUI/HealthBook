@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View } from 'react-native'
 
-export default class resMesures extends Component {
+export default class profiles extends Component {
     render() {
         return (
             <View style={styles.container} >
-            <Text> Mesures Page </Text>
+            <Text> Profiles Page </Text>
         </View>
     )
 }
@@ -18,4 +18,3 @@ container:{
     alignItems:'center',
 }
 })
-

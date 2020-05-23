@@ -38,7 +38,7 @@ export default class Surgery extends Component {
           <Text> Fait le : </Text>
           <TextInput
              style={appStyle.input}
-             placeholder=' /   /   '
+             placeholder='jj/mm/aaaa'
              autoCapitalize='none'
              underlineColorAndroid='transparent'
              onChangeText={(faitle) => this.setState({faitle})}

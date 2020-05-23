@@ -63,7 +63,7 @@ export default class Surgery extends Component {
              onChangeText={(pardocteur) => this.setState({pardocteur})}
              value={this.state.pardocteur}
          />
-         <TouchableOpacity style={appStyle.button} onPress={this.loginUser}>
+         <TouchableOpacity style={appStyle.button} onPress={this.Surgery}>
                     <Text style={appStyle.btnText} > Enregistrer </Text>
                 </TouchableOpacity>
                 

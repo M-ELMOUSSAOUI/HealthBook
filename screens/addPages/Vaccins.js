@@ -51,7 +51,7 @@ export default class Vaccins extends Component {
              onChangeText={(faitle) => this.setState({faitle})}
              value={this.state.faitle}
          />
-          <TouchableOpacity style={appStyle.button} onPress={this.loginUser}>
+          <TouchableOpacity style={appStyle.button} onPress={this.Vaccins}>
                     <Text style={appStyle.btnText} > Enregistrer </Text>
                 </TouchableOpacity>
             </View>

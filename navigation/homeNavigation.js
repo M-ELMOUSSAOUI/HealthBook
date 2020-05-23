@@ -12,13 +12,15 @@ import Radio from '../screens/addPages/Radio';
 import Sur from '../screens/addPages/Surgery';
 import Vacc from '../screens/addPages/Vaccins';
 
-import { MaterialIcons } from '@expo/vector-icons';
 
+import { MaterialIcons } from '@expo/vector-icons';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
+
 const stack = createStackNavigator();
 export default class homeNavigation extends Component {
+  
   render() {
     return (
       <stack.Navigator screenOptions={{
@@ -54,7 +56,6 @@ export default class homeNavigation extends Component {
             }
           } 
           />
-
           <stack.Screen name='add' component={Add} options={{title:'Ajouter'}} />
           <stack.Screen name='Appotmnt' component={Appotmnt} options={{title:'Rendez-vous'}} />
           <stack.Screen name='Analysis' component={Analy} options={{title:'Analyses-vous'}} />

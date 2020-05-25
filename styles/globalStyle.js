@@ -4,7 +4,7 @@ const {width : WIDTH} = Dimensions.get('window');
 export const appStyle = StyleSheet.create({
     input:{
         width: WIDTH - 55,
-        height: 45,
+        height: 30,
         borderRadius: 6,
         fontSize: 16,
         paddingLeft: 45,

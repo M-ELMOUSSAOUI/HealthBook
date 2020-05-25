@@ -80,7 +80,7 @@ export default class Medicament extends Component {
              value={this.state.horaire}
          />
           <Text style= 'bold'> Notification </Text>
-          <TouchableOpacity style={appStyle.button} onPress={this.Analysis}>
+          <TouchableOpacity style={appStyle.button} onPress={this.Medicament}>
                     <Text style={appStyle.btnText} > Enregistrer </Text>
                 </TouchableOpacity>
             </View>

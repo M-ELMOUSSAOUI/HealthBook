@@ -1,27 +1,30 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, TouchableOpacity, TextInput } from 'react-native'
+import { StyleSheet, View, Image, TouchableWithoutFeedback, TouchableOpacity,KeyboardAvoidingView } from 'react-native';
+import { TextInput, Button, Text, Switch } from 'react-native-paper';
+
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import { appStyle } from '../../styles/globalStyle';
 import logo from './addPageIcons/calendar.png';
-import * as Animatable from 'react-native-animatable';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import moment from 'moment'
 export default class Appointment extends Component {
-    constructor(){
+
+    constructor() {
         super()
         this.state = {
-            isVisible : false,
-            chosenDate:'',
-            titre:'',
-            endroit:'',
-            docteur:'',
-            specialite:''
+            isVisible: false,
+            Date: 'jj/mm/aaaa',
+            time: 'hh:mm',
+            titre: '',
+            endroit: '',
+            docteur: '',
+            specialite: '',
+            isSwitchOn: false,
         }
     }
     handlePicker = (datetime) => {
         this.setState({
             isVisible: false,
-            chosenDate: moment(datetime).format('MMMM, Do YYYY HH:mm')
+            chosenDate: moment(datetime).format('HH:mm')
         })
     }
     showPicker = () => {
@@ -32,76 +35,92 @@ export default class Appointment extends Component {
     hidePicker = () => {
         this.setState({
             isVisible: false
-            
+
         })
     }
+    _onToggleSwitch = () => this.setState(state => ({ isSwitchOn: !state.isSwitchOn }));
     render() {
-        return (<View style={styles.container} >
-            <View style={{ marginBottom: 50 }} >
-            <Animatable.Image
-                source={logo}
-                animation="pulse"
-                easing="ease-out"
-                iterationCount="infinite" />
-                 </View>
-            <Text>
-                {this.state.chosenDate}
-            </Text>
-                <TouchableOpacity style={appStyle.button} onPress = {this.showPicker}>
-                    <Text>    Date Et Heure</Text>
-                </TouchableOpacity>
-                <DateTimePicker
-                isVisible ={this.state.isVisible}
-                onConfirm={this.handlePicker}
-                onCancel={this.hidePicker}
-                mode={'datetime'}
-                is24Hour={false}
-                />
-                 <Text style= 'bold'> Notification </Text>
-                 <TextInput
-             style={appStyle.input}
-             placeholder="Titre"
-             autoCapitalize='none'
-             underlineColorAndroid='transparent'
-             onChangeText={(titre) => this.setState({titre})}
-             value={this.state.titre}
-         />
-          <TextInput
-             style={appStyle.input}
-             placeholder="Endroit"
-             autoCapitalize='none'
-             underlineColorAndroid='transparent'
-             onChangeText={(endroit) => this.setState({endroit})}
-             value={this.state.endroit}
-         />
-         <TextInput
-             style={appStyle.input}
-             placeholder="Docteur"
-             autoCapitalize='none'
-             underlineColorAndroid='transparent'
-             onChangeText={(docteur) => this.setState({docteur})}
-             value={this.state.docteur}
-         />
-          <TextInput
-             style={appStyle.input}
-             placeholder="Specialite"
-             autoCapitalize='none'
-             underlineColorAndroid='transparent'
-             onChangeText={(specialite) => this.setState({specialite})}
-             value={this.state.specialite}
-         />
-          <TouchableOpacity style={appStyle.button} onPress={this.Appointment}>
-                    <Text style={appStyle.btnText} > Enregistrer </Text>
-                </TouchableOpacity>
-            </View>
+        const { isSwitchOn } = this.state;
+        return (
+            <KeyboardAvoidingView style={{flex:1}}>
+            <TouchableWithoutFeedback>
+                <View style={styles.container}>
+                    <View style={{ alignItems: 'center' }}>
+                        <Image
+                            source={logo} width={60}
+                        />
+                    </View>
+
+                    <View style={styles.dateTimeContainer}>
+                        <View style={{ alignItems: 'center' }}>
+                            <Text> Date </Text>
+                            <TouchableOpacity>
+                                <FontAwesome name='calendar' size={35} />
+                            </TouchableOpacity>
+                            <Text> {this.state.Date}</Text>
+                        </View>
+                        <View style={{ alignItems: 'center', position: 'absolute', right: 5 }}>
+                            <Text> Temps </Text>
+                            <TouchableOpacity>
+                                <FontAwesome5 name='clock' size={35} />
+                            </TouchableOpacity>
+                            <Text> {this.state.time}</Text>
+                        </View>
+                    </View>
+
+                    <View style={styles.notificationCont}>
+                        <Text style={{ fontSize: 20 }}> Notifcation </Text>
+                        <Switch
+                            style={{ scaleX: 1.5, scaleY: 1.5, marginHorizontal: 10 }}
+                            color='#28696d'
+                            value={isSwitchOn}
+                            onValueChange={this._onToggleSwitch}
+                        />
+                    </View>
+                    
+                   
+                        <View styles={{}}>
+                        <TextInput
+                            mode='outlined'
+                            label='Titre'   
+                        />
+                        </View>
+                        <View styles={{}}>
+                        <TextInput
+                            mode='outlined'
+                            label='Titre'   
+                        />
+                        </View>
+
+                
+
+                </View>
+            </TouchableWithoutFeedback>
+            </KeyboardAvoidingView>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
+        flex: 1,
+        padding: 10,
+
+    },
+    dateTimeContainer: {
+        flexDirection: 'row',
+        borderWidth: 3,
+    },
+    notificationCont: {
+        flexDirection: 'row',
+        borderWidth: 2,
+        marginVertical: 10,
+        padding: 10,
+        alignItems: 'center',
+    },
+    input:{
+        borderWidth:2,
         flex:1,
-        alignItems:'center',
-        justifyContent:'center',
+        paddingHorizontal:10,
     }
 })

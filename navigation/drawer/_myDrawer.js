@@ -51,7 +51,7 @@ export default class _myDrawer extends Component {
     componentDidMount() {
 
         var user = firebase.auth().currentUser;
-        this.setState({ email: user.email, userName: user.displayName })
+        if(user) this.setState({ email: user.email, userName: user.displayName })
     }
     tabs = () => {
         return (

@@ -37,7 +37,6 @@ export default class App extends Component {
 
   }
   render() {
-    console.log(this.state.isAuth);
     return (
     this.state.loading ?
     <View style={styles.container} >

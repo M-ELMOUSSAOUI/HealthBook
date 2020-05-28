@@ -3,15 +3,15 @@ import { Text, StyleSheet, View,TouchableOpacity } from 'react-native';
 import { Ionicons,Fontisto } from '@expo/vector-icons';
 
 
-export default class tab4 extends Component {
+export default class tab5 extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.title}> {this.props.route.params.title} </Text>
+                <Text style={styles.title}>  {this.props.route.params.title} </Text>
                 <View style={styles.addBtn}>
-                    <TouchableOpacity onPress={() => this.props.navigation.push('Analysis')}>
-                    <Fontisto name="test-tube" size={35} color={'white'} />
-                    <Ionicons style={{ position: 'absolute',left:'-45%'}} name="md-add" size={29} color="white" />
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Surgery')}>
+                    <Fontisto name="surgical-knife" size={40} color='white' />
+                    <Ionicons style={{ position: 'absolute',left:0}} name="md-add" size={29} color="white" />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -20,11 +20,9 @@ export default class tab4 extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-
+    container:{
+        flex:1,
+        alignItems:'center'
     },
     addBtn: {
         width: 70,
@@ -45,4 +43,4 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         marginTop:10,
     }
-});
+})

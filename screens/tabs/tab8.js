@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons,FontAwesome } from '@expo/vector-icons';
+import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
+import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 
 
-export default class tab1 extends Component {
+export default class tab8 extends Component {
     render() {
-        console.log(this.props);
-
         return (
             <View style={styles.container}>
-
-                <Text style={styles.title}> {this.props.route.params.title} </Text>
+                <Text style={styles.title}>  {this.props.route.params.title} </Text>
                 <View style={styles.addBtn}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Appotmnt')}>
-                    <FontAwesome style={{paddingLeft:10}} name='calendar' size={38} color='white' />
-                    <Ionicons style={{ position: 'absolute',left:'-20%'}} name="md-add" size={29} color="white" />
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Vaccins')}>
+                        <FontAwesome5 name="syringe" size={45} color='white' />
+                        <Ionicons style={{ position: 'absolute', top: -5 }} name="md-add" size={30} color="white" />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -25,8 +22,7 @@ export default class tab1 extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     addBtn: {
         width: 70,
@@ -47,5 +43,4 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginTop: 10,
     }
-});
-
+})

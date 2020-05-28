@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity, } from 'react-native';
+
 import home from '../screens/home';
 import Add from '../screens/addPages/_add';
 import Appotmnt from '../screens/addPages/Appointment';
@@ -12,14 +13,17 @@ import Radio from '../screens/addPages/Radio';
 import Sur from '../screens/addPages/Surgery';
 import Vacc from '../screens/addPages/Vaccins';
 
+import {MaterialIcons} from '@expo/vector-icons'
 
-import { MaterialIcons } from '@expo/vector-icons';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
 
 const stack = createStackNavigator();
+
 export default class homeNavigation extends Component {
+
+
   
   render() {
     return (
@@ -36,10 +40,10 @@ export default class homeNavigation extends Component {
         }
 
       }} >
-        <stack.Screen  name='home'  component={home}
+       <stack.Screen name='add' component={Add} 
           options={
             {
-              title: 'Acceuil',
+              title: 'Ajouter',
               headerRight: () =>
                 (
 
@@ -54,18 +58,18 @@ export default class homeNavigation extends Component {
                   </View>
                 )
             }
-          } 
-          />
-          <stack.Screen name='add' component={Add} options={{title:'Ajouter'}} />
-          <stack.Screen name='Appotmnt' component={Appotmnt} options={{title:'Rendez-vous'}} />
-          <stack.Screen name='Analysis' component={Analy} options={{title:'Analyses-vous'}} />
-          <stack.Screen name='Allergie' component={All} options={{title:'Allergie'}} />
-          <stack.Screen name='Consultation' component={Cons} options={{title:'Consultation'}} />
-          <stack.Screen name='Medicament' component={Med} options={{title:'Médicament'}} />
-          <stack.Screen name='Mesures' component={Mes} options={{title:'Mesures'}} />
-          <stack.Screen name='Radio' component={Radio} options={{title:'Radiologie'}} />
-          <stack.Screen name='Surgery' component={Sur} options={{title:'Chirurgies'}} />
-          <stack.Screen name='Vaccins' component={Vacc} options={{title:'Vaccins'}} />
+          }
+        />
+        
+        <stack.Screen name='Appotmnt' component={Appotmnt} options={{ title: 'Rendez-vous' }} />
+        <stack.Screen name='Analysis' component={Analy} options={{ title: 'Analyses-vous' }} />
+        <stack.Screen name='Allergie' component={All} options={{ title: 'Allergie' }} />
+        <stack.Screen name='Consultation' component={Cons} options={{ title: 'Consultation' }} />
+        <stack.Screen name='Medicament' component={Med} options={{ title: 'Médicament' }} />
+        <stack.Screen name='Mesures' component={Mes} options={{ title: 'Mesures' }} />
+        <stack.Screen name='Radio' component={Radio} options={{ title: 'Radiologie' }} />
+        <stack.Screen name='Surgery' component={Sur} options={{ title: 'Chirurgies' }} />
+        <stack.Screen name='Vaccins' component={Vacc} options={{ title: 'Vaccins' }} />
       </stack.Navigator>
     )
   }

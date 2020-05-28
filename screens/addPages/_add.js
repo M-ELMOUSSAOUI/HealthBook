@@ -26,7 +26,6 @@ const pageList=[
 ]
 export default class _add extends Component {
     render() { 
-    
         return (
             <View style={styles.container}>
                  <View style={styles.gridContainer}>

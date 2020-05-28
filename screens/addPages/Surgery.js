@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, TouchableOpacity, Image } from 'react-native'
+import { Text, StyleSheet, View, TouchableOpacity, Image,ScrollView } from 'react-native'
 import logo from './addPageIcons/surgery.png';
 import { appStyle } from '../../styles/globalStyle';
 import { AntDesign } from '@expo/vector-icons';
@@ -66,21 +66,19 @@ export default class Surgery extends Component {
                 }
             }
     }
-
     render() {
         return (
-            
             <View style={styles.container} >
                 <View style={{ marginTop: -100, alignItems: 'center' }} >
                     <Image source={logo} />
-
                     <DateTimePicker
                         isVisible={this.state.show}
                         onConfirm={this.handlePicker}
                         onCancel={this.hidePicker}
                         mode={this.state.mode}
                         is24Hour={true}
-                        onChange={() => this.handlePicker}
+                        onChange={() =>this.handlePicker}
+                        
                     />
                 </View>
 
@@ -137,7 +135,6 @@ export default class Surgery extends Component {
                     style={{width:'50%',borderRadius:40}}
                     mode='contained'
                     loading={this.state._isLoading}
-                    title='test'
                     theme={{ colors: { primary: '#28696d'}}}
                     onPress={()=>this.saveEvent()}
                 >
